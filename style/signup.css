@@ -1,0 +1,79 @@
+*{
+  font-family: 'Inter', sans-serif;
+}
+.imgsize{
+  width: 500px !important;
+  /* border: 2px solid red;  */
+} 
+
+h2{
+  font-size: 32px !important;
+  font-weight: 600 !important;
+  line-height: 38.73px;
+ color: #0B6186 !important;
+}
+
+section{
+  height:100vh !important;
+  /* border: 2px solid red; */
+
+}
+
+button{
+  background-color: #0B6186;
+  padding: 7px;
+  border-radius: 10px !important;
+  color: white;
+  font-weight: bold;
+  border: none;
+  margin-top: 20px !important;
+  margin-bottom: 30px !important;
+}
+
+.socialLogin{
+  border-top: 2.5px solid #9B9999;
+  width:180px;
+}
+
+.outlineNone{
+  outline: none;
+  border: none;
+  /* padding: 10px; */
+  width: 100%;
+  margin-left: 20px ;
+}
+
+.outlineNone::placeholder{
+  color: #0B6186;
+  font-size: 13px;
+}
+
+.oreo>p{
+  position: relative;
+  bottom: 15px;
+}
+
+.subtop{
+  font-size: 13px;
+  color: #9B9999;
+}
+
+.subtop2{
+  font-size: 14.5px;
+  color: #9B9999;
+  margin-top: 20px !important;
+}
+
+.formSize{
+  width: 400px !important;
+  text-align: center;
+  height: 600px !important;
+}
+.options{
+  color: #0B6186;
+}
+a{
+  color: #0B6186;
+  text-decoration: none !important;
+  font-weight: 500;
+}
