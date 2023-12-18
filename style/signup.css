@@ -77,3 +77,26 @@ a{
   text-decoration: none !important;
   font-weight: 500;
 }
+
+@media screen and (max-width: 475px) {
+  section{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .imgsize{
+    width: 100% !important;
+    /* border: 2px solid red;  */
+    display: flex;
+    justify-content: center;
+  } 
+  .imgsize2{
+    width: 100% !important;
+    justify-content: center;
+ 
+  }
+  
+  .formSize{
+    width: 370px !important;
+  }
+}
