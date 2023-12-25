@@ -1,6 +1,10 @@
 *{
-  font-family: 'Inter', sans-serif;
+  font-family: 'Lato TR', sans-serif;
+  font-family: 'Lato TR Hairline', sans-serif;
+  font-family: 'Lato TR Black', sans-serif;
+
 }
+
 body{
   background-color: #C2F2FF !important;
 }
@@ -16,6 +20,69 @@ nav{
 .menu>div>span{
   font-size: 14px;
   color: #0B6186;
+}
+.main3{
+  margin-left: 372px !important;
+  margin-top: 40px !important;
+  overflow-y: auto;
+  overflow-x: hidden !important;
+}
+.mainChild>div>small{
+  font-size: 12px;
+  color: #0B6186;
+}
+.mainChild>div>p{
+  font-size: 32px;
+  color: #0B6186;
+}
+.mainChild>button{
+  border:  none;
+  background-color: rgb(11, 97, 134);
+  border-radius: 50px;
+  padding: 15px 30px;
+  width: 170px;
+  color: white;
+}
+.monitor{
+  width: 400px !important;
+  border-radius: 30px;
+  padding: 30px 50px ;
+  height: fit-content !important;
+}
+
+.monitor2{
+  width: 330px !important;
+  border-radius: 30px;
+  padding: 30px 50px ;
+  height: fit-content !important;
+}
+
+.monitor2>p{
+  font-size: 70px !important;
+  color: #0B6186;
+}
+.monitor2>small{
+  font-size: 20px;
+  color: #0B6186;
+  font-family: 'Lato TR Light', sans-serif;
+
+}
+.monitor2>p>span{
+  font-size: 20px !important;
+}
+
+.monitor>p{
+  font-size: 70px !important;
+  color: #0B6186;
+}
+.monitor>small{
+  font-size: 20px;
+  color: #0B6186;
+  font-family: 'Lato TR Light', sans-serif;
+
+}
+.monitor>p>span{
+  font-size: 20px !important;
 }
 /* .brod{
   height: fit-content;
@@ -49,6 +116,7 @@ nav{
 
 .buttonMenu{
   border-top: 2px solid #0B6186;
+  color: #0B6186;
 }
 
 .topHead>h2{
