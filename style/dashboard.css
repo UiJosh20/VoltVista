@@ -1,0 +1,77 @@
+*{
+  font-family: 'Inter', sans-serif;
+}
+body{
+  background-color: #C2F2FF !important;
+}
+nav{
+  position: fixed;
+  top: 0px;
+  z-index: 100;
+}
+.menu{
+  position: fixed;
+  left: 0px;
+}
+.menu>div>span{
+  font-size: 14px;
+  color: #0B6186;
+}
+/* .brod{
+  height: fit-content;
+  width: fit-content;
+  padding: 20px !important;
+}
+
+.brod>h2{
+  font-size: 50px !important;
+  color: #0B6186;
+}
+
+.brod>small{
+  font-size: 13px !important;
+  color: #0B6186;
+}
+.brod>h2>small{
+  font-size: 23px !important;
+  color: #0B6186;
+}
+.main1{
+  width: 350px !important;
+  height: 100vh !important;
+  overflow-y: auto;
+}
+.main2{
+  height: 90px !important;
+  Padding: 13px 55px !important; 
+}
+*/
+
+.buttonMenu{
+  border-top: 2px solid #0B6186;
+}
+
+.topHead>h2{
+  font-size: 25px !important ;
+  font-weight: 500;
+ color: #0B6186 !important;
+}
+.topHead>p{
+  font-size: 14px !important ;
+ color: #0B6186 !important;
+}
+.searchDiv{
+  border: 2px solid grey;
+  padding: 5px 17px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+}
+.searchDiv>input{
+  outline: none;
+  border: none;
+}
+.searchDiv::placeholder{
+  color: #0B6186;
+  font-size: 13px;
+}
