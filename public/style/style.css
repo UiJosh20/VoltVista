@@ -64,13 +64,11 @@ button{
   section{
     display: flex;
     flex-direction: column;
+    padding: 10px 30px !important;
   }
 
   .imgsize{
-    width: 100% !important;
-    /* border: 2px solid red;  */
-    display: flex;
-    justify-content: center;
+    display: none;
   } 
 
   .imgsize>img{
@@ -79,11 +77,12 @@ button{
   }
   .imgsize2{
     width: 100% !important;
-    justify-content: center;
+    margin-top: 80px;
  
   }
   
   .formSize{
     width: 370px !important;
+    padding: 0px 20px !important;
   }
 }

@@ -1,26 +1,25 @@
-*{
-  font-family: 'Inter', sans-serif;
+* {
+  font-family: "Inter", sans-serif;
 }
-.imgsize{
+.imgsize {
   width: 500px !important;
   /* border: 2px solid red;  */
-} 
+}
 
-h2{
+h2 {
   font-size: 32px !important;
   font-weight: 600 !important;
   line-height: 38.73px;
- color: #0B6186 !important;
+  color: #0b6186 !important;
 }
 
-section{
-  height:100vh !important;
+section {
+  height: 100vh !important;
   /* border: 2px solid red; */
-
 }
 
-button{
-  background-color: #0B6186;
+button {
+  background-color: #0b6186;
   padding: 7px;
   border-radius: 10px !important;
   color: white;
@@ -30,75 +29,67 @@ button{
   margin-bottom: 30px !important;
 }
 
-.socialLogin{
-  border-top: 2.5px solid #9B9999;
-  width:180px;
+.socialLogin {
+  border-top: 2.5px solid #9b9999;
+  width: 180px;
 }
 
-.outlineNone{
+.outlineNone {
   outline: none;
   border: none;
   /* padding: 10px; */
   width: 100%;
-  margin-left: 20px ;
+  margin-left: 20px;
 }
 
-.outlineNone::placeholder{
-  color: #0B6186;
+.outlineNone::placeholder {
+  color: #0b6186;
   font-size: 13px;
 }
 
-.oreo>p{
+.oreo > p {
   position: relative;
   bottom: 15px;
 }
 
-.subtop{
+.subtop {
   font-size: 13px;
-  color: #9B9999;
+  color: #9b9999;
 }
 
-.subtop2{
+.subtop2 {
   font-size: 14.5px;
-  color: #9B9999;
+  color: #9b9999;
   margin-top: 20px !important;
 }
 
-.formSize{
+.formSize {
   width: 400px !important;
   text-align: center;
   height: 600px !important;
 }
-.options{
-  color: #0B6186;
+.options {
+  color: #0b6186;
 }
-a{
-  color: #0B6186;
+a {
+  color: #0b6186;
   text-decoration: none !important;
   font-weight: 500;
 }
 
 @media screen and (max-width: 475px) {
-  section{
+  section {
     display: flex;
     flex-direction: column;
   }
 
-  .imgsize{
+  .imgsize2 {
     width: 100% !important;
-    /* border: 2px solid red;  */
-    display: flex;
-    justify-content: center;
-  } 
-
- 
-  .imgsize2{
-    width: 100% !important;
-    justify-content: center;
- 
+    margin-top: 80px !important;
   }
-  
-  .formSize{
-    width: 370px !important;
+
+  .formSize {
+    width: 100% !important;
+    padding: 0px 15px;
   }
 }

@@ -141,7 +141,7 @@ const signinEmail = () => {
       let errorCode = error.code;
       console.log(errorCode);
       if (errorCode == "auth/invalid-login-credentials") {
-        showerr.innerHTML = `<p class="alert alert-danger text-center"> Sie haben eine ungültige E-Mail-Adresse und ein ungültiges Passwort eingegeben</p>`;
+        showerr.innerHTML = `<p class="alert alert-danger text-center"> </p>`;
         setTimeout(() => {
           showerr.style.display = "none";
         }, 4000);
