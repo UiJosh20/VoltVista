@@ -1,6 +1,11 @@
 * {
   font-family: "Inter", sans-serif;
 }
+
+img{
+  cursor: pointer !important;
+}
+
 .imgsize {
   width: 500px !important;
   /* border: 2px solid red;  */
