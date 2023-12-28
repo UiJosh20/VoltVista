@@ -15,12 +15,19 @@
   </head>
   <body>
     <nav
-      class="bg-white d-flex align-items-center justify-content-between w-100"
+      class="bg-white d-flex align-items-center justify-content-between w-100 shadow-sm"
     >
+      <img
+        width="20"
+        height="20"
+        src="https://img.icons8.com/ios-filled/50/menu--v1.png"
+        alt="menu--v1"
+        class="ms-2 ham"
+      />
       <div>
         <img src="images/Frame 285.svg" alt="" />
       </div>
-      <main class="d-flex justify-content-evenly w-75">
+      <main class="d-flex justify-content-evenly navpart2">
         <div class="topHead">
           <h2>Dashboard</h2>
           <small id="displayName"></small>
@@ -32,12 +39,12 @@
             type="text"
             name=""
             id="searchIt"
-            class="ms-2"
+            class="ms-2 inputIt"
             placeholder="Search"
           />
         </div>
 
-        <div class="d-flex">
+        <div class="d-flex notification">
           <img src="images/clarity_notification-line.svg" alt="" />
           <div></div>
         </div>
@@ -46,8 +53,8 @@
 
     <section class="container-fluid mt-5">
       <main class="row">
-        <div class="col-3 bg-white p-lg-4 menu">
-          <div class="d-flex gap-3 p-lg-4">
+        <div class="col-3 bg-white menu">
+          <div class="d-flex gap-3 p-lg-4 align-items-center indicate">
             <img src="images/mdi-light_view-dashboard.svg" alt="" />
             <span>Dashboard</span>
           </div>
@@ -92,11 +99,11 @@
             </div>
           </div>
         </div>
-        <div class="col-9 main3">
+        <div class="col-lg-9 main3 col-sm-12">
           <main
             class="d-flex justify-content-between align-items-center mainChild p-2"
           >
-            <div class="d-flex gap-2 align-items-center">
+            <div class="d-flex gap-2 align-items-center meter">
               <small>Meter Number:</small>
               <p>6463625252</p>
             </div>
@@ -119,30 +126,34 @@
             </div>
           </main>
 
-          <main
-            class="main4 mt-4 d-flex justify-content-center"
-          >
+          <main class="main4 mt-4 d-flex justify-content-center">
             <div class="bg-white shadow p-5">
               <canvas id="electricityChart" width="872" height="515"></canvas>
             </div>
-          
           </main>
 
-          <main
-          class="main4 mt-4 d-flex justify-content-center"
-        >
-          <div class="bg-white shadow p-5">
-            <canvas id="electricityChart1" width="872" height="515"></canvas>
-          </div>
-        </main>
+          <main class="main4 mt-4 d-flex justify-content-center">
+            <div class="bg-white shadow p-5">
+              <canvas id="electricityChart1" width="872" height="515"></canvas>
+            </div>
+          </main>
         </div>
       </main>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-
+    <script type="module" src="script/dashboard.js"></script>
     <script>
+      // JavaScript to toggle the menu
+      const menu = document.querySelector(".menu");
+      const ham = document.querySelector(".ham");
+
+      ham.addEventListener("click", function () {
+        menu.classList.toggle("active"); // Toggles the 'active' class on the menu
+        ham.classList.toggle("active"); // Toggles the 'active' class on the hamburger icon
+      });
+
       // Function to generate random electricity usage data
       function generateRandomData() {
         const data = [];
@@ -159,7 +170,9 @@
 
       // Get the canvas element
       const ctx = document.getElementById("electricityChart").getContext("2d");
-      const ctx1 = document.getElementById("electricityChart1").getContext("2d");
+      const ctx1 = document
+        .getElementById("electricityChart1")
+        .getContext("2d");
 
       // Create the bar chart with Chart.js and Datalabels plugin
       const myChart = new Chart(ctx, {
@@ -204,9 +217,8 @@
         },
       });
 
-
-       // Create the bar chart with Chart.js and Datalabels plugin
-       const NewChart = new Chart(ctx1, {
+      // Create the bar chart with Chart.js and Datalabels plugin
+      const NewChart = new Chart(ctx1, {
         type: "bar",
         data: {
           labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
@@ -247,8 +259,6 @@
           },
         },
       });
-
-
     </script>
   </body>
 </html>

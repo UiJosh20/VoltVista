@@ -39,23 +39,23 @@ const googleSignin = () => {
         });
         window.location.href = "dashboard.html";
       } else {
-        window.location.href = "index.html";
+        // window.location.href = "index.html";
       }
     })
     .catch((error) => {
       let errorCode = error.code;
       console.log(errorCode);
-      // if (errorCode == "auth/account-exists-with-different-credential") {
-      //   showerr.innerHTML = `<p class="alert alert-danger">Ein Benutzer ist bereits mit dieser E-Mail angemeldet</p>`;
-      //   setTimeout(() => {
-      //     showerr.style.display = "none";
-      //   }, 3000);
-      // } else if (errorCode == "auth/internal-error") {
-      //   showerr.innerHTML = `<p class="alert alert-warning">Sie sind nicht mit dem Internet verbunden</p>`;
-      //   setTimeout(() => {
-      //     showerr.style.display = "none";
-      //   }, 3000);
-      // }
+      if (errorCode == "auth/account-exists-with-different-credential") {
+        showerr.innerHTML = `<p class="alert alert-danger">Account already exist</p>`;
+        setTimeout(() => {
+          showerr.style.display = "none";
+        }, 3000);
+      } else if (errorCode == "auth/internal-error") {
+        showerr.innerHTML = `<p class="alert alert-warning">No internet connection</p>`;
+        setTimeout(() => {
+          showerr.style.display = "none";
+        }, 3000);
+      }
     });
 };
 window.googleSignin = googleSignin;
@@ -70,9 +70,19 @@ const facebookSignin = () =>{
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
     const credential = FacebookAuthProvider.credentialFromResult(result);
     const accessToken = credential.accessToken;
-
     console.log(user);
     console.log(accessToken);
+
+
+    if (user) {
+      sendEmailVerification(auth.currentUser).then(() => {
+        console.log("Verification email sent!");
+      });
+      window.location.href = "dashboard.html";
+    } else {
+      // window.location.href = "index.html";
+    }
+
   })
   .catch((error) => {
     // Handle Errors here.
@@ -101,8 +111,14 @@ const appleSignin = () =>{
     const accessToken = credential.accessToken;
     const idToken = credential.idToken;
 
-    // IdP data available using getAdditionalUserInfo(result)
-    // ...
+    if (user) {
+      sendEmailVerification(auth.currentUser).then(() => {
+        console.log("Verification email sent!");
+      });
+      window.location.href = "dashboard.html";
+    } else {
+      // window.location.href = "index.html";
+    }
   })
   .catch((error) => {
     // Handle Errors here.
@@ -141,7 +157,7 @@ const signinEmail = () => {
       let errorCode = error.code;
       console.log(errorCode);
       if (errorCode == "auth/invalid-login-credentials") {
-        showerr.innerHTML = `<p class="alert alert-danger text-center"> </p>`;
+        showerr.innerHTML = `<p class="alert alert-danger text-center">invalid login details</p>`;
         setTimeout(() => {
           showerr.style.display = "none";
         }, 4000);
@@ -149,7 +165,7 @@ const signinEmail = () => {
         errorCode == "auth/internal-error" ||
         errorCode == "auth/network-request-failed"
       ) {
-        showerr.innerHTML = `<p class="alert alert-warning text-center">Sie sind nicht mit dem Internet verbunden</p>`;
+        showerr.innerHTML = `<p class="alert alert-warning text-center">No internet connection</p>`;
         setTimeout(() => {
           showerr.style.display = "none";
         }, 4000);
@@ -173,12 +189,12 @@ const btnAll = () => {
       let errorCode = error.code;
       console.log(errorCode);
       if (errorCode == "auth/email-already-in-use") {
-        showerr.innerHTML = `<p class="alert alert-danger text-center">Diese E-Mail existiert bereits</p>`;
+        showerr.innerHTML = `<p class="alert alert-danger text-center">Email already used</p>`;
         setTimeout(() => {
           showerr.style.display = "none";
         }, 4000);
       } else if (errorCode == "auth/invalid-email") {
-        showerr.innerHTML = `<p class="alert alert-danger text-center">E-Mail und Passwort dürfen nicht leer sein</p>`;
+        showerr.innerHTML = `<p class="alert alert-danger text-center">Incorrect email address</p>`;
         setTimeout(() => {
           showerr.style.display = "none";
         }, 4000);
