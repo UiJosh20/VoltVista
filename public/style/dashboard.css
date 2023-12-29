@@ -19,7 +19,20 @@ nav{
   left: 0px;
   padding: 40px  20px !important;
 }
+.prof{
+  border-left: 2px solid black;
+  display: flex;
+  justify-content: space-between !important;
+  align-items: center;
+  /* border: 2px solid red; */
+  padding-left: 20px;
+  gap: 30px;
+  margin-left: 100px;
+}
 
+#displayProfile>img{
+border-radius: 100%;
+}
 .menu>div>span{
   font-size: 14px;
   color: #0B6186;
@@ -129,6 +142,9 @@ nav{
 .ham{
   display: none;
 }
+.hideDiv{
+  display: none;
+}
 
 @media screen and (max-width: 475px) {
   nav>div>img{
@@ -155,7 +171,7 @@ nav{
     margin-left: 0px !important;
   }
   .searchDiv{
-    margin-right: 300px;
+    margin-right: 100px;
     border: none;
   }
   .searchDiv>img{
@@ -329,5 +345,19 @@ nav{
   .monitor>p>span{
     font-size: 20px !important;
   }
+
+  .prof{
+   display: none;
+  }
   
+  .hideDiv{
+    display: block;
+    /* border: 2px solid red; */
+    border-radius: 100% !important;
+  }
+  .notification{
+    margin-left: 200px;
+    display: block;
+  }
+
 }
