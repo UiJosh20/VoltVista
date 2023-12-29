@@ -68,19 +68,22 @@ button{
     display: flex;
     flex-direction: column;
     padding: 10px 30px !important;
+    margin-top: -20px !important;
   }
 
   .imgsize{
-    display: none;
+    display: flex;
+    justify-content: center;
+    width: 100% !important;
   } 
 
   .imgsize>img{
-    width: 350px !important;
+    width: 300px !important;
 
   }
   .imgsize2{
     width: 100% !important;
-    margin-top: 80px;
+    margin-top: 10px;
  
   }
   

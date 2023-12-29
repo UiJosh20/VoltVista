@@ -23,7 +23,14 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
     console.log(user, uid);
-    // ...
+    // let profilePhoto = user.photoURL
+    // let userName = user.displayName
+    // displayProfile.innerHTML = `
+    // <img src=${profilePhoto} width="30" height="30"/>
+    // `
+    // displayUserName.innerHTML = `
+    // <p>${userName}</p>
+    // `
   } else {
     // User is signed out
     // ...
