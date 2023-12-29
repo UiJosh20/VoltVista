@@ -29,7 +29,7 @@ onAuthStateChanged(auth, (user) => {
     <img src=${profilePhoto} width="40" height="40"/>
     `
     displayProfile1.innerHTML = `
-    <img src=${profilePhoto} width="30" height="30"/>
+    <img src=${profilePhoto} width="30" height="30" style="border-radius:100%;"/>
     `
     displayUsername.innerHTML = `
     ${userName}
