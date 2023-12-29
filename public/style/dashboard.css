@@ -362,5 +362,7 @@ border-radius: 100%;
   #displayUsername{
     display: none;
   }
-
+.chart1 {
+  padding: 10px !important;
+}
 }
