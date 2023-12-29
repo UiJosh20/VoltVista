@@ -32,7 +32,7 @@ onAuthStateChanged(auth, (user) => {
     <img src=${profilePhoto} width="30" height="30" style="border-radius:100%;"/>
     `
     displayUsername.innerHTML = `
-    ${userName}
+    Hi ${userName}, welcome back
     `
   } else {
     // User is signed out
