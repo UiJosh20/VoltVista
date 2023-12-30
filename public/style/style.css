@@ -4,6 +4,9 @@
 img{
   cursor: pointer !important;
 }
+body{
+  overflow-x: hidden !important;
+}
 
 .imgsize{
   width: 698px !important;
@@ -27,6 +30,7 @@ h2{
 }
 .options{
   color: #0B6186;
+  margin-bottom: 40px;
 }
 a{
   color: #0B6186;
