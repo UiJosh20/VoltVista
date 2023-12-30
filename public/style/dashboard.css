@@ -5,7 +5,7 @@
 
 }
 body{
-  overflow-x: hidden;
+  overflow: hidden !important;
 }
 small{
   color: #0B6186;
@@ -47,9 +47,10 @@ border-radius: 100%;
 .main3{
   margin-left: 372px !important;
   margin-top: 40px !important;
-  overflow-y: auto;
-  overflow-x: hidden !important;
+  height: fit-content;
 }
+
+
 .mainChild>div>small{
   font-size: 12px;
   color: #0B6186;
@@ -168,24 +169,71 @@ border-radius: 100%;
   font-size: 14px;
 }
 
+#dashboardHome{
+  height: calc(100vh - 100px); /* Adjust the height as needed */
+  overflow-y: auto;
+}
+
+#puff{
+  height: calc(100vh - 100px); /* Adjust the height as needed */
+  overflow-y: auto !important;
+  overflow-x: hidden;
+}
+
+#notify{
+  height: calc(100vh - 100px); /* Adjust the height as needed */
+  overflow-y: auto !important;
+  overflow-x: hidden;
+}
+
 .igin{
   background-color: #FAFAFA !important;
-  width: 105%;
+  width: 100%;
   margin-left: auto;
-  
-
-  
 }
+
+.main5{
+  background-color: #FAFAFA !important;
+  width: 100%;
+  margin-left: auto;
+  border: 2px solid red;
+  height: 100vh;
+}
+
+.notifyDiv{
+  margin-left: 400px;
+  width: 72%;
+  margin-top: 55px;
+}
+.Proff{
+  padding: 30px 0px !important;
+  background-color: #FAFAFA !important;
+  width: 100%;
+
+}
+
 .movePro{
   margin-left: 550px !important;
   height: fit-content;
-  margin-top: 80px;
+  margin-top: 80px !important;
+  width: 640px!important;
+
 }
 .borsbot{
-  border-bottom: 2px solid rgb(187, 184, 184);
+  border-bottom: 2px dotted rgb(187, 184, 184);
   margin-bottom: 30px ;
 }
-
+.borsbot>small{
+  font-size: 13px;
+  color: rgb(180, 180, 180);
+}
+.borsbot>p{
+  font-size: 15px;
+  color: rgb(95, 95, 95);
+}
+.activeSlide{
+  border-bottom: 3px solid black;
+}
 
 @media screen and (max-width: 475px) {
   nav>div>img{
@@ -455,11 +503,11 @@ border-radius: 100%;
   margin-bottom: 30px ;
 }
 .borsbot>small{
-  font-size: 13px;
+  font-size: 9px;
   color: rgb(180, 180, 180);
 }
 .borsbot>p{
-  font-size: 20px;
+  font-size: 13px;
   color: rgb(95, 95, 95);
 }
 

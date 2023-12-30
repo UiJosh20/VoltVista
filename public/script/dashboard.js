@@ -35,7 +35,6 @@ onAuthStateChanged(auth, (user) => {
     Hi ${userName}, welcome back
     `
   } else {
-    // User is signed out
-    // ...
+   window.location.href = "index.html"
   }
 });

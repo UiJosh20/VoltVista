@@ -39,7 +39,7 @@ const googleSignin = () => {
         });
         window.location.href = "dashboard.html";
       } else {
-        // window.location.href = "index.html";
+        window.location.href = "index.html";
       }
     })
     .catch((error) => {
@@ -117,7 +117,7 @@ const appleSignin = () =>{
       });
       window.location.href = "dashboard.html";
     } else {
-      // window.location.href = "index.html";
+      window.location.href = "index.html";
     }
   })
   .catch((error) => {
