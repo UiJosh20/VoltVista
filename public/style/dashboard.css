@@ -196,7 +196,7 @@ border-radius: 100%;
   background-color: #FAFAFA !important;
   width: 100%;
   margin-left: auto;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   height: 100vh;
 }
 
@@ -359,6 +359,7 @@ border-radius: 100%;
     width: 100%;
     overflow-y: auto;
     overflow-x: hidden !important;
+
   }
   .mainChild{
     width: 100%;
@@ -509,6 +510,16 @@ border-radius: 100%;
 .borsbot>p{
   font-size: 13px;
   color: rgb(95, 95, 95);
+}
+
+.notifyDiv{
+  margin-left: 0px !important;
+  width: 100%;
+  color: #000;
+  /* border: 2px solid red;  */
+  margin-top: 35px;
+  font-size: 13px;
+  padding: 0px 17px;
 }
 
 }
