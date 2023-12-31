@@ -25,6 +25,11 @@ onAuthStateChanged(auth, (user) => {
     console.log(user, uid);
     let profilePhoto = user.photoURL
     let userName = user.displayName
+    let emailAd = user.email
+    let firstName = userName.split(' ')[0];
+    let lastName = userName.split(' ')[1];
+
+
     displayProfile.innerHTML = `
     <img src=${profilePhoto} width="40" height="40"/>
     `
@@ -32,9 +37,61 @@ onAuthStateChanged(auth, (user) => {
     <img src=${profilePhoto} width="30" height="30" style="border-radius:100%;"/>
     `
     displayUsername.innerHTML = `
-    Hi ${userName}, welcome back
+    Hi ${firstName}, welcome back
+    `
+    profileFirst.innerText = `
+      ${firstName}
+    `
+    profileLast.innerText = `
+      ${lastName}
+    `
+    emailProfile.innerText=`
+      ${emailAd}
+    `
+    const userPhone = user.phoneNumber ? user.phoneNumber : '---';
+    phoneProfile.innerText = `
+    ${userPhone}
     `
   } else {
    window.location.href = "index.html"
   }
 });
+
+
+const apiKey = '844366e79376460f9c6a0f3343ecaea9';
+function getCurrentLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${apiKey}`)
+          .then(response => response.json())
+          .then(data => {
+            // Extracting address components
+            const {country, state} = data.results[0].components
+            console.log(`Country: ${country}`);
+            console.log(`State: ${state}`);
+            console.log(data);
+            displayNationality.innerText =  `
+             ${country}n
+            `
+            displayAddress.innerText =  `
+             ${state}
+            `
+
+          })
+          .catch(error => console.error('Error:', error));
+      },
+      (error) => {
+        console.error('Error getting location:', error.message);
+      }
+    );
+  } else {
+    console.error('Geolocation is not supported by this browser.');
+  }
+}
+window.getCurrentLocation = getCurrentLocation
+// Call the function to get current coordinates and fetch location details
+getCurrentLocation();
