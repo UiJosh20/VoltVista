@@ -130,10 +130,12 @@ border-radius: 100%;
 }
 
 .buttonMenu{
-  /* border-top: 2px solid #0B6186; */
+  border-top: 2px solid #0B6186;
   color: #0B6186;
 }
+.bottomMenu1{
 
+}
 .topHead{
   margin-left: 10px;
 }
@@ -297,13 +299,13 @@ border-radius: 100%;
     padding: 10px;
     margin-bottom: 20px;
   }*/
-  .buttonMenu>div{
-    /* padding: 10px; */
-    margin-top: 20px;
-  }
+
   .buttonMenu{
     margin-top: 20px;
+    margin-bottom: -20px !important;
     border-top: 2px solid #0B6186;
+  }
+  .bottomMenu1{
   }
   .ham{
     display: block;
