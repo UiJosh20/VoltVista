@@ -28,8 +28,8 @@ onAuthStateChanged(auth, (user) => {
     let emailAd = user.email
     let firstName = userName.split(' ')[0];
     let lastName = userName.split(' ')[1];
-
-
+  
+    displayMeterNumber()
     displayProfile.innerHTML = `
     <img src=${profilePhoto} width="40" height="40"/>
     `
@@ -80,6 +80,9 @@ function getCurrentLocation() {
             displayAddress.innerText =  `
              ${state}
             `
+            displayNation.innerText =  `
+             ${country}
+            `
 
           })
           .catch(error => console.error('Error:', error));
@@ -95,3 +98,5 @@ function getCurrentLocation() {
 window.getCurrentLocation = getCurrentLocation
 // Call the function to get current coordinates and fetch location details
 getCurrentLocation();
+
+
