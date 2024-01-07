@@ -248,18 +248,50 @@
         <section class="main5" id="notificationSection">
          <main id="notify" >
           <div class="d-flex justify-content-between notifyDiv">
-            <div class="activeSlide">
-              <p>BILLS</p>
+            <div class="activeSlide" >
+              <p onclick="toggleNotifyDiv(0)">BILLS</p>
             </div>
-            <div>
-              <p>TIPS</p>
+            <div >
+              <p onclick="toggleNotifyDiv(1)">TIPS</p>
             </div>
-            <div>
-              <p>USAGE</p>
+            <div >
+              <p onclick="toggleNotifyDiv(2)">USAGE</p>
             </div>
           </div>
+          <main class="borderit">
+            <table id="showBill" class="table table-sm table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Date & Time</th>
+                  <th>Description</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody id="billTableBody">
+                <!-- Bills will be populated here -->
+              </tbody>
+            </table>
+          </main>
 
-         </main> 
+          <main  class="borderit" style="display: none; text-align: center; opacity: 0.5; margin-top: 300px;">
+            <div id="tipsTab">
+              <h3>Tips currently unavailable</h3>
+            </div>
+            <!-- Content for TIPS tab -->
+          </main>
+          <main  class="borderit" style="display: none; text-align: center; opacity: 0.5; margin-top: 300px;">
+            <!-- Content for USAGE tab -->
+            <div id="usageTab">
+              <h3>usage information currently unavailable</h3>
+            </div> 
+          </main>
+
+
+
+         </main>
+
+
+         
 
 
 

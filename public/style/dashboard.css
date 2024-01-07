@@ -216,9 +216,15 @@ border-radius: 100%;
 }
 
 .notifyDiv{
-  margin-left: 400px;
+  margin-left: 350px;
   width: 72%;
-  margin-top: 55px;
+  padding-top: 20px;
+  margin-top: 65px;
+  position: fixed;
+  top: 20px;
+  z-index: 99;
+  background-color: #FAFAFA;
+  cursor: pointer;
 }
 .Proff{
   padding: 30px 0px !important;
@@ -248,7 +254,19 @@ border-radius: 100%;
 }
 .activeSlide{
   border-bottom: 3px solid black;
+  cursor: pointer;
 }
+.activeSlide>div{
+  cursor: pointer;
+}
+
+
+.borderit{
+  /* border: 2px solid red; */
+  width: 70% !important;
+  margin: 130px 400px;
+}
+
 
 @media screen and (max-width: 475px) {
   nav>div>img{
@@ -529,13 +547,23 @@ border-radius: 100%;
 }
 
 .notifyDiv{
-  margin-left: 0px !important;
+  margin-left: -10px !important;
   width: 100%;
   color: #000;
   /* border: 2px solid red;  */
-  margin-top: 35px;
+  margin-top: 46px;
   font-size: 13px;
-  padding: 0px 17px;
+  padding: 10px 10px;
+}
+
+.borderit{
+  /* border: 2px solid red; */
+  width: 100% !important;
+  margin: 100px 0px;
+  font-size: 12px;
+}
+h3{
+  font-size: 14px !important;
 }
 
 }

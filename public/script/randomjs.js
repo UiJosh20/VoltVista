@@ -1,66 +1,12 @@
-// Function to generate a random bill
-function generateRandomBill() {
-  const date = new Date(); // Current date and time
-  const description = "Random bill description";
-  const amount = Math.floor(Math.random() * 100) + 1; // Random amount
 
-  return {
-    date: date.toLocaleDateString(),
-    time: date.toLocaleTimeString(),
-    description,
-    amount,
-  };
-}
 
-// Function to save bills to local storage
-function saveBillsToLocalStorage() {
-  let userBills = JSON.parse(localStorage.getItem("userBills")) || [];
-
-  const newBill = generateRandomBill();
-
-  userBills.push(newBill);
-
-  localStorage.setItem("userBills", JSON.stringify(userBills));
-}
-
-// Function to display bills to the user
-function displayBills() {
-  const userBills = JSON.parse(localStorage.getItem("userBills")) || [];
-
-  // Assuming you have a container with id "billContainer" to display bills
-  const billContainer = document.getElementById("billContainer");
-
-  // Clear existing content in the container
-  billContainer.innerHTML = "";
-
-  // Loop through each bill and display its details
-  userBills.forEach((bill, index) => {
-    const billElement = document.createElement("div");
-    billElement.classList.add("bill");
-    billElement.innerHTML = `
-      <p><strong>Bill ${index + 1}</strong></p>
-      <p>Date: ${bill.date}</p>
-      <p>Time: ${bill.time}</p>
-      <p>Description: ${bill.description}</p>
-      <p>Amount: $${bill.amount}</p>
-    `;
-    billContainer.appendChild(billElement);
-  });
-}
-
-// Example: Generating and saving a random bill
-saveBillsToLocalStorage();
-
-// Display the generated bills
-displayBills();
-
-      function generateRandomMeterNumber() {
+      const generateRandomMeterNumber = () =>{
   const min = 1000000000; // Minimum 10-digit number
   const max = 9999999999; // Maximum 10-digit number
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function checkUser() {
+const checkUser = () => {
   const meterNumber = localStorage.getItem('meterNumber');
 
   if (!meterNumber) {
@@ -75,9 +21,75 @@ function checkUser() {
 }
 
 // Use this function to get the meter number and display it
-function displayMeterNumber() {
+const displayMeterNumber = () =>{
   const meterNumber = checkUser();
   const meterElement = document.getElementById('meterNumber');
   meterElement.innerText = meterNumber;
 }
 
+
+const generateRandomBill = () =>{
+  const startDate = new Date('2023-01-01'); // Start date: January 1st, 2023
+  const endDate = new Date('2024-01-05'); // End date: January 5th, 2024
+
+  // Calculate a random date within the range
+  const randomTime = startDate.getTime() + Math.random() * (endDate.getTime() - startDate.getTime());
+  const randomDate = new Date(randomTime);
+
+  const description = 'Electricity bill';
+  const amount = (Math.random() * 100000).toFixed(1); // Random amount between 0 and 100
+
+  // Format date and time
+  const dateTime = `${randomDate.toLocaleDateString()} ${randomDate.toLocaleTimeString()}`;
+
+  return {
+    dateTime,
+    description,
+    amount: `₦ ${amount}`, // Adding the Naira sign before the amount
+  };
+}
+
+
+const populateBillTable = () =>{
+  const tableBody = document.getElementById('billTableBody');
+
+  // Create rows and populate the table with random bill data
+  for (let i = 0; i < 25; i++) {
+    const bill = generateRandomBill();
+    const row = document.createElement('tr');
+
+    const dateTimeCell = document.createElement('td');
+    dateTimeCell.textContent = bill.dateTime;
+    row.appendChild(dateTimeCell);
+
+    const descriptionCell = document.createElement('td');
+    descriptionCell.textContent = bill.description;
+    row.appendChild(descriptionCell);
+
+    const amountCell = document.createElement('td');
+    amountCell.textContent = bill.amount;
+    row.appendChild(amountCell);
+
+    tableBody.appendChild(row);
+  }
+}
+
+// Populate the bill table
+populateBillTable();
+
+
+
+function toggleNotifyDiv(index) {
+  const notifyDivs = document.querySelectorAll('.notifyDiv > div');
+  const tables = document.querySelectorAll('.borderit');
+
+  notifyDivs.forEach((div, i) => {
+    if (i === index) {
+      div.classList.add('activeSlide');
+      tables[i].style.display = 'block';
+    } else {
+      div.classList.remove('activeSlide');
+      tables[i].style.display = 'none';
+    }
+  });
+}

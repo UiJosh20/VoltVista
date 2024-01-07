@@ -3,6 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebas
 
 import {
   getAuth,
+  onAuthStateChanged,
   signInWithPopup,
   GoogleAuthProvider,
   FacebookAuthProvider,
@@ -28,6 +29,12 @@ const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const facebookLogin = new FacebookAuthProvider();
 const appleProvider = new OAuthProvider('apple.com');
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, redirect to the dashboard
+    window.location.href = "dashboard.html";
+  } else {
 
 const googleSignin = () => {
   signInWithPopup(auth, provider)
@@ -209,7 +216,8 @@ window.btnAll = btnAll;
 
 
 
-
+}
+});
 
 
 
