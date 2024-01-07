@@ -220,8 +220,6 @@ border-radius: 100%;
   width: 72%;
   padding-top: 20px;
   margin-top: 65px;
-  position: fixed;
-  top: 20px;
   z-index: 99;
   background-color: #FAFAFA;
   cursor: pointer;
@@ -264,7 +262,7 @@ border-radius: 100%;
 .borderit{
   /* border: 2px solid red; */
   width: 70% !important;
-  margin: 130px 400px;
+  margin: 50px 400px;
 }
 
 
@@ -559,7 +557,7 @@ border-radius: 100%;
 .borderit{
   /* border: 2px solid red; */
   width: 100% !important;
-  margin: 100px 0px;
+  margin: 20px 0px;
   font-size: 12px;
 }
 h3{
