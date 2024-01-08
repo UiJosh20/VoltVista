@@ -284,24 +284,24 @@
 
 
 
-      logoutLink.addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent the default link behavior
+      // logoutLink.addEventListener('click', function (event) {
+      //   event.preventDefault(); // Prevent the default link behavior
 
-        // Hide the dashboard and display the profile section
-        dashboardSection.style.display = 'none';
-        profileSection.style.display = 'none';
-        notificationSection.style.display = 'none';
-        applianceSection.style.display = 'none';
-        BillingSection.style.display = 'none';
-        accountSection.style.display = 'none';
-        settingSection.style.display = 'none';
-        helpSection.style.display = 'none';
-        logoutSection.style.display = 'block';
-        // Optionally, close the offcanvas menu after clicking on the link
-        const offcanvas = document.getElementById('offcanvasExample');
-        const offcanvasBS = bootstrap.Offcanvas.getInstance(offcanvas);
-        offcanvasBS.hide();
-      });
+      //   // Hide the dashboard and display the profile section
+      //   dashboardSection.style.display = 'none';
+      //   profileSection.style.display = 'none';
+      //   notificationSection.style.display = 'none';
+      //   applianceSection.style.display = 'none';
+      //   BillingSection.style.display = 'none';
+      //   accountSection.style.display = 'none';
+      //   settingSection.style.display = 'none';
+      //   helpSection.style.display = 'none';
+      //   logoutSection.style.display = 'block';
+      //   // Optionally, close the offcanvas menu after clicking on the link
+      //   const offcanvas = document.getElementById('offcanvasExample');
+      //   const offcanvasBS = bootstrap.Offcanvas.getInstance(offcanvas);
+      //   offcanvasBS.hide();
+      // });
 
 
 
