@@ -52,7 +52,6 @@ const generateRandomBill = () =>{
 
 const populateBillTable = () =>{
   const tableBody = document.getElementById('billTableBody');
-
   // Create rows and populate the table with random bill data
   for (let i = 0; i < 25; i++) {
     const bill = generateRandomBill();

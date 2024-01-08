@@ -116,7 +116,7 @@
       const accountSection = document.getElementById('accountSection')
       const settingSection = document.getElementById('settingSection')
       const helpSection = document.getElementById('helpSection')
-      const logoutSection = document.getElementById('logoutSection')
+      
 
 
       // Find the links in the offcanvas menu
@@ -128,7 +128,7 @@
       const accountLink = document.querySelector('.offcanvas-body a[href="#accounts"]');
       const settingLink = document.querySelector('.offcanvas-body a[href="#settings"]');
       const helpLink = document.querySelector('.offcanvas-body a[href="#help"]');
-      const logoutLink = document.querySelector('.offcanvas-body a[href="#logout"]');
+      
 
 
       profileLink.addEventListener('click', function (event) {
@@ -143,7 +143,7 @@
         accountSection.style.display = 'none';
         settingSection.style.display = 'none';
         helpSection.style.display = 'none';
-        logoutSection.style.display = 'none';
+        
 
         // Optionally, close the offcanvas menu after clicking on the link
         const offcanvas = document.getElementById('offcanvasExample');
@@ -163,7 +163,7 @@
         accountSection.style.display = 'none';
         settingSection.style.display = 'none';
         helpSection.style.display = 'none';
-        logoutSection.style.display = 'none';
+        
 
         // Optionally, close the offcanvas menu after clicking on the link
         const offcanvas = document.getElementById('offcanvasExample');
@@ -184,7 +184,7 @@
         accountSection.style.display = 'none';
         settingSection.style.display = 'none';
         helpSection.style.display = 'none';
-        logoutSection.style.display = 'none';
+        
 
         // Optionally, close the offcanvas menu after clicking on the link
         const offcanvas = document.getElementById('offcanvasExample');
@@ -207,7 +207,7 @@
         accountSection.style.display = 'none';
         settingSection.style.display = 'none';
         helpSection.style.display = 'none';
-        logoutSection.style.display = 'none';
+        
 
         // Optionally, close the offcanvas menu after clicking on the link
         const offcanvas = document.getElementById('offcanvasExample');
@@ -228,7 +228,7 @@
         accountSection.style.display = 'block';
         settingSection.style.display = 'none';
         helpSection.style.display = 'none';
-        logoutSection.style.display = 'none';
+        
 
         // Optionally, close the offcanvas menu after clicking on the link
         const offcanvas = document.getElementById('offcanvasExample');
@@ -250,7 +250,7 @@
         accountSection.style.display = 'none';
         settingSection.style.display = 'block';
         helpSection.style.display = 'none';
-        logoutSection.style.display = 'none';
+        
 
         // Optionally, close the offcanvas menu after clicking on the link
         const offcanvas = document.getElementById('offcanvasExample');
@@ -273,7 +273,7 @@
         accountSection.style.display = 'none';
         settingSection.style.display = 'none';
         helpSection.style.display = 'block';
-        logoutSection.style.display = 'none';
+        
 
         // Optionally, close the offcanvas menu after clicking on the link
         const offcanvas = document.getElementById('offcanvasExample');
@@ -319,7 +319,7 @@
         accountSection.style.display = 'none';
         settingSection.style.display = 'none';
         helpSection.style.display = 'none';
-        logoutSection.style.display = 'none';
+        
 
         // Optionally, close the offcanvas menu after clicking on the link
         const offcanvas = document.getElementById('offcanvasExample');
@@ -340,7 +340,7 @@
       const accountLink1 = document.querySelector('.menu a[href="#accounts"]');
       const settingLink1 = document.querySelector('.menu a[href="#settings"]');
       const helpLink1 = document.querySelector('.menu a[href="#help"]');
-      const logoutLink1 = document.querySelector('.menu a[href="#logout"]');
+      
 
 
       profileLink1.addEventListener('click', function (event) {
@@ -355,7 +355,7 @@
         accountSection.style.display = 'none';
         settingSection.style.display = 'none';
         helpSection.style.display = 'none';
-        logoutSection.style.display = 'none';
+        
 
 
       });
@@ -389,7 +389,7 @@
         accountSection.style.display = 'none';
         settingSection.style.display = 'none';
         helpSection.style.display = 'none';
-        logoutSection.style.display = 'none';
+        
 
 
       });
@@ -409,7 +409,7 @@
         accountSection.style.display = 'none';
         settingSection.style.display = 'none';
         helpSection.style.display = 'none';
-        logoutSection.style.display = 'none';
+        
 
       });
 
@@ -426,7 +426,7 @@
         accountSection.style.display = 'block';
         settingSection.style.display = 'none';
         helpSection.style.display = 'none';
-        logoutSection.style.display = 'none';
+        
 
 
       });
@@ -445,7 +445,7 @@
         accountSection.style.display = 'none';
         settingSection.style.display = 'block';
         helpSection.style.display = 'none';
-        logoutSection.style.display = 'none';
+        
 
 
       });
@@ -465,28 +465,14 @@
         accountSection.style.display = 'none';
         settingSection.style.display = 'none';
         helpSection.style.display = 'block';
-        logoutSection.style.display = 'none';
+        
 
       });
 
 
 
 
-      logoutLink1.addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent the default link behavior
-
-        // Hide the dashboard and display the profile section
-        dashboardSection.style.display = 'none';
-        profileSection.style.display = 'none';
-        notificationSection.style.display = 'none';
-        applianceSection.style.display = 'none';
-        BillingSection.style.display = 'none';
-        accountSection.style.display = 'none';
-        settingSection.style.display = 'none';
-        helpSection.style.display = 'none';
-        logoutSection.style.display = 'block';
-
-      });
+ 
 
 
 

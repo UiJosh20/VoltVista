@@ -3,6 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebas
 import {
   getAuth,
   onAuthStateChanged,
+  signOut,
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 const firebaseConfig = {
@@ -99,4 +100,12 @@ window.getCurrentLocation = getCurrentLocation
 // Call the function to get current coordinates and fetch location details
 getCurrentLocation();
 
+const logoutItNOw = () => {
+  signOut(auth).then(() => {
+    // Sign-out successful.
+  }).catch((error) => {
+    // An error happened.
+  });
+}
 
+window.logoutItNOw = logoutItNOw
