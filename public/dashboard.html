@@ -1,260 +1,303 @@
-  <!DOCTYPE html>
-  <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="style/dashboard.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-    <link href="https://fonts.cdnfonts.com/css/lato-tr" rel="stylesheet" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style/dashboard.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link href="https://fonts.cdnfonts.com/css/lato-tr" rel="stylesheet" />
+</head>
 
-  <body>
-    <nav class="bg-white d-flex align-items-center justify-content-between w-100 shadow-sm">
-      <img width="20" height="20" src="https://img.icons8.com/ios-filled/50/menu--v1.png" alt="menu--v1" class="ms-2 ham"
-        data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" />
-      <div>
-        <img src="images/Frame 285.svg" alt="" />
+<body>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Meter Number</h1>
+        </div>
+        <div class="modal-body">
+          <p>Enter meter number</p>
+          <input type="number" class="form-control shadow-none" id="firstModalInput" autofocus>
+        </div>
+        <div class="p-3 modalfooter">
+          <button type="button" class="btn shadow-none text-white w-100" onclick="meterCheck()">Enter</button>
+        </div>
       </div>
-      <main class="d-flex justify-content-evenly navpart2">
-        <div class="topHead">
-          <h2>Dashboard</h2>
-          <small id="displayUsername"></small>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+     
+      <div class="modal-body text-center">
+        <img src="images/vw.svg" alt="" width="70">
+        <h1>Successful</h1>
+        <small>meter has been added successfully </small>
+      </div>
+      <div class="p-3 modalfooter">
+        <button type="button" class="btn shadow-none text-white w-100" data-bs-dismiss="modal">continue</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  <nav class="bg-white d-flex align-items-center justify-content-between w-100 shadow-sm">
+    <img width="20" height="20" src="https://img.icons8.com/ios-filled/50/menu--v1.png" alt="menu--v1" class="ms-2 ham"
+      data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" />
+    <div>
+      <img src="images/Frame 285.svg" alt="" />
+    </div>
+    <main class="d-flex justify-content-evenly navpart2">
+      <div class="topHead">
+        <h2>Dashboard</h2>
+        <small id="displayUsername"></small>
+      </div>
+
+      <div class="searchDiv">
+        <img src="images/circum_search.svg" alt="" />
+        <input type="text" name="" id="searchIt" class="ms-2 inputIt" placeholder="Search" />
+      </div>
+
+      <div class="d-flex notification gap-3 align-items-center">
+        <img src="images/clarity_notification-line.svg" alt="" />
+        <div id="displayProfile1" class="hideDiv"></div>
+        <div class="prof">
+          <div id="displayProfile"></div>
         </div>
+      </div>
+    </main>
+  </nav>
 
-        <div class="searchDiv">
-          <img src="images/circum_search.svg" alt="" />
-          <input type="text" name="" id="searchIt" class="ms-2 inputIt" placeholder="Search" />
+  <section class="container-fluid mt-5">
+    <main class="row">
+
+      <!-- offcanva menu for mobile screen -->
+
+      <div class="offcanvas offcanvas-start  dnone w-75" tabindex="-1" id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <img src="images/Frame 285.svg" alt="" width="150">
         </div>
-
-        <div class="d-flex notification gap-3 align-items-center">
-          <img src="images/clarity_notification-line.svg" alt="" />
-          <div id="displayProfile1" class="hideDiv"></div>
-          <div class="prof">
-            <div id="displayProfile"></div>
-          </div>
-        </div>
-      </main>
-    </nav>
-
-    <section class="container-fluid mt-5">
-      <main class="row">
-
-        <!-- offcanva menu for mobile screen -->
-
-        <div class="offcanvas offcanvas-start  dnone w-75" tabindex="-1" id="offcanvasExample"
-          aria-labelledby="offcanvasExampleLabel">
-          <div class="offcanvas-header">
-            <img src="images/Frame 285.svg" alt="" width="150">
-          </div>
-          <div class="offcanvas-body">
-            <a href="#dashboardHome"
-              class="d-flex gap-3 p-lg-4 align-items-center indicate textNone text-decoration-none fSMall">
-              <img src="images/mdi-light_view-dashboard.svg" alt="" width="19.5px"/>
-              <span>Dashboard</span>
-            </a>
-            <a href="#profile" class="d-flex gap-3 p-lg-4 textNone text-decoration-none fSMall">
-              <img src="images/iconamoon_profile-thin.svg" alt="" width="19.5px"/>
-              <span>profile</span>
-            </a>
-            <a href="#notificaton" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
-              <img src="images/clarity_notification-line.svg" alt="" width="19.5px"/>
-              <span>Notification</span>
-            </a>
-
-            <a href="#appliances" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
-              <img src="images/arcticons_fpt-tv-remote.svg" alt="" width="19.5px"/>
-              <span>Add appliances</span>
-            </a>
-
-            <a href="#bills" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
-              <img src="images/fluent_payment-28-regular.svg" alt="" width="19.5px"/>
-              <span>Billing</span>
-            </a>
-
-            <a href="#accounts" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
-              <img src="images/fluent-mdl2_switch-user.svg" alt="" width="19.5px"/>
-              <span>Switch Account</span>
-            </a>
-            <div class="buttonMenu"></div>
-              <a href="#settings" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
-                <img src="images/arcticons_settings.svg" alt="" width="19.5px"/>
-                <span>settings</span>
-              </a>
-
-              <a href="#help" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
-                <img src="images/clarity_help-line.svg" alt="" width="19.5px"/>
-                <span>Help</span>
-              </a>
-
-              <a href="#logout" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall" onclick="logoutItNOw()">
-                <img src="images/logout.svg" alt="" width="19.5px"/>
-                <span>logout</span>
-              </a>
-            
-          </div>
-        </div>
-        </div>
-
-
-        <div class="col-2 bg-white menu shadow">
-
-          <a href="#dashboardHome" class="d-flex gap-3 p-lg-4 align-items-center indicate text-decoration-none fSMall">
-            <img src="images/mdi-light_view-dashboard.svg" alt=""  width="19.5px"/>
+        <div class="offcanvas-body">
+          <a href="#dashboardHome"
+            class="d-flex gap-3 p-lg-4 align-items-center indicate textNone text-decoration-none fSMall">
+            <img src="images/mdi-light_view-dashboard.svg" alt="" width="19.5px" />
             <span>Dashboard</span>
           </a>
-          <a href="#profile" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
-            <img src="images/iconamoon_profile-thin.svg" alt="" width="19.5px"/>
+          <a href="#profile" class="d-flex gap-3 p-lg-4 textNone text-decoration-none fSMall">
+            <img src="images/iconamoon_profile-thin.svg" alt="" width="19.5px" />
             <span>profile</span>
           </a>
           <a href="#notificaton" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
-            <img src="images/clarity_notification-line.svg" alt="" width="19.5px"/>
+            <img src="images/clarity_notification-line.svg" alt="" width="19.5px" />
             <span>Notification</span>
           </a>
 
           <a href="#appliances" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
-            <img src="images/arcticons_fpt-tv-remote.svg" alt="" width="19.5px"/>
+            <img src="images/arcticons_fpt-tv-remote.svg" alt="" width="19.5px" />
             <span>Add appliances</span>
           </a>
 
           <a href="#bills" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
-            <img src="images/fluent_payment-28-regular.svg" alt="" width="19.5px"/>
+            <img src="images/fluent_payment-28-regular.svg" alt="" width="19.5px" />
             <span>Billing</span>
           </a>
 
           <a href="#accounts" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
-            <img src="images/fluent-mdl2_switch-user.svg" alt="" width="19.5px"/>
+            <img src="images/fluent-mdl2_switch-user.svg" alt="" width="19.5px" />
             <span>Switch Account</span>
           </a>
+          <div class="buttonMenu"></div>
+          <a href="#settings" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
+            <img src="images/arcticons_settings.svg" alt="" width="19.5px" />
+            <span>settings</span>
+          </a>
 
-          <div class="buttonMenu">
-            <a href="#settings" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
-              <img src="images/arcticons_settings.svg" alt="" width="19.5px"/>
-              <span>settings</span>
-            </a>
+          <a href="#help" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
+            <img src="images/clarity_help-line.svg" alt="" width="19.5px" />
+            <span>Help</span>
+          </a>
 
-            <a href="#help" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
-              <img src="images/clarity_help-line.svg" alt="" width="19.5px"/>
-              <span>Help</span>
-            </a>
+          <a href="#logout" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall" onclick="logoutItNOw()">
+            <img src="images/logout.svg" alt="" width="19.5px" />
+            <span>logout</span>
+          </a>
 
-            <a href="#logout" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall" onclick="logoutItNOw()">
-              <img src="images/logout.svg" alt="" width="19.5px"/>
-              <span>logout</span>
-            </a>
-          </div>
         </div>
+      </div>
+      </div>
+
+
+      <div class="col-2 bg-white menu shadow">
+
+        <a href="#dashboardHome" class="d-flex gap-3 p-lg-4 align-items-center indicate text-decoration-none fSMall">
+          <img src="images/mdi-light_view-dashboard.svg" alt="" width="19.5px" />
+          <span>Dashboard</span>
+        </a>
+        <a href="#profile" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
+          <img src="images/iconamoon_profile-thin.svg" alt="" width="19.5px" />
+          <span>profile</span>
+        </a>
+        <a href="#notificaton" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
+          <img src="images/clarity_notification-line.svg" alt="" width="19.5px" />
+          <span>Notification</span>
+        </a>
+
+        <a href="#appliances" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
+          <img src="images/arcticons_fpt-tv-remote.svg" alt="" width="19.5px" />
+          <span>Add appliances</span>
+        </a>
+
+        <a href="#bills" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
+          <img src="images/fluent_payment-28-regular.svg" alt="" width="19.5px" />
+          <span>Billing</span>
+        </a>
+
+        <a href="#accounts" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
+          <img src="images/fluent-mdl2_switch-user.svg" alt="" width="19.5px" />
+          <span>Switch Account</span>
+        </a>
+
+        <div class="buttonMenu">
+          <a href="#settings" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
+            <img src="images/arcticons_settings.svg" alt="" width="19.5px" />
+            <span>settings</span>
+          </a>
+
+          <a href="#help" class="d-flex gap-3 p-lg-4 text-decoration-none fSMall">
+            <img src="images/clarity_help-line.svg" alt="" width="19.5px" />
+            <span>Help</span>
+          </a>
+
+          <a href="#logout" class="d-flex gap-3 p-lg-4  text-decoration-none fSMall" onclick="logoutItNOw()">
+            <img src="images/logout.svg" alt="" width="19.5px" />
+            <span>logout</span>
+          </a>
+        </div>
+      </div>
 
 
 
-        <!-- dashboard -->
-        <section class="col-lg-9 main3 col-sm-12" id="dashboardHome">
-          <main class="d-flex justify-content-between align-items-center mainChild">
-            <div class="d-flex gap-2 align-items-center meter">
-              <small>Meter Number:</small>
-              <p id="meterNumber"></p>
+      <!-- dashboard -->
+      <section class="col-lg-9 main3 col-sm-12" id="dashboardHome">
+        <main class="d-flex justify-content-between align-items-center mainChild">
+          <div class="d-flex gap-2 align-items-center meter">
+            <small>Meter Number:</small>
+            <p id="meterNumber1"></p>
+          </div>
+          <button>Buy electricity</button>
+        </main>
+
+        <main class="main4 d-flex justify-content-between ">
+          <div class="monitor bg-white col-4 d-flex justify-content-center flex-column shadow">
+            <small>Available Balance</small>
+            <p>170.24<span>Kw/h</span></p>
+          </div>
+
+          <div class="monitor2 bg-white col-4 d-flex justify-content-center flex-column shadow">
+            <small>Estimated Usage Day</small>
+            <p>28<span>Day(s)</span></p>
+          </div>
+        </main>
+
+        <main class="main4 mt-4 d-flex justify-content-center">
+          <div class="bg-white shadow p-lg-5 chart1">
+            <canvas id="electricityChart" width="772" height="515"></canvas>
+          </div>
+        </main>
+
+        <main class="main4 mt-4 d-flex justify-content-center mb-3">
+          <div class="bg-white shadow p-lg-5 chart1">
+            <canvas id="electricityChart1" width="772" height="515"></canvas>
+          </div>
+        </main>
+      </section>
+
+      <!-- profile -->
+      <section id="profileSection" class="Proff">
+
+        <main class="igin" id="puff">
+          <div class=" movePro">
+
+            <div class="borsbot">
+              <small>Surname</small>
+              <p id="profileFirst"></p>
             </div>
-            <button>Buy electricity</button>
-          </main>
 
-          <main class="main4 d-flex justify-content-between ">
-            <div class="monitor bg-white col-4 d-flex justify-content-center flex-column shadow">
-              <small>Available Balance</small>
-              <p>170.24<span>Kw/h</span></p>
+            <div class="borsbot">
+              <small>First Name</small>
+              <p id="profileLast"></p>
             </div>
 
-            <div class="monitor2 bg-white col-4 d-flex justify-content-center flex-column shadow">
-              <small>Estimated Usage Day</small>
-              <p>28<span>Day(s)</span></p>
+
+            <div class="borsbot">
+              <small>Middle name</small>
+              <p>---</p>
             </div>
-          </main>
 
-          <main class="main4 mt-4 d-flex justify-content-center">
-            <div class="bg-white shadow p-lg-5 chart1">
-              <canvas id="electricityChart" width="872" height="515"></canvas>
+
+            <div class="borsbot">
+              <small>Date of Birth</small>
+              <p>---</p>
             </div>
-          </main>
 
-          <main class="main4 mt-4 d-flex justify-content-center mb-3">
-            <div class="bg-white shadow p-lg-5 chart1">
-              <canvas id="electricityChart1" width="872" height="515"></canvas>
+            <div class="borsbot">
+              <small>Nationality</small>
+              <p id="displayNationality"></p>
             </div>
-          </main>
-        </section>
-
-        <!-- profile -->
-        <section id="profileSection" class="Proff">
-
-          <main class="igin" id="puff">
-              <div class=" movePro">
-                
-                <div class="borsbot">
-                  <small>Surname</small>
-                  <p id="profileFirst" ></p>
-                </div>
-
-                <div class="borsbot">
-                  <small>First Name</small>
-                  <p id="profileLast"></p>
-                </div>
 
 
-                <div class="borsbot">
-                  <small>Middle name</small>
-                  <p>---</p>
-                </div>
+            <div class="borsbot">
+              <small>Country</small>
+              <p id="displayNation"></p>
+            </div>
+
+            <div class="borsbot">
+              <small>State</small>
+              <p id="displayAddress"></p>
+            </div>
 
 
-                <div class="borsbot">
-                  <small>Date of Birth</small>
-                  <p>---</p>
-                </div>
+            <div class="borsbot">
+              <small>Email Address</small>
+              <p id="emailProfile"></p>
+            </div>
 
-                <div class="borsbot">
-                  <small>Nationality</small>
-                  <p id="displayNationality"></p>
-                </div>
-
-
-                <div class="borsbot">
-                  <small>Country</small>
-                  <p id="displayNation"></p>
-                </div>
-
-                <div class="borsbot">
-                  <small>State</small>
-                  <p id="displayAddress"></p>
-                </div>
+            <div class="borsbot">
+              <small>Phone</small>
+              <p id="phoneProfile"></p>
+            </div>
+          </div>
+        </main>
 
 
-                <div class="borsbot">
-                  <small>Email Address</small>
-                  <p id="emailProfile"></p>
-                </div>
+      </section>
 
-                <div class="borsbot">
-                  <small>Phone</small>
-                  <p id="phoneProfile"></p>
-                </div>
-              </div>
-          </main>
-
-
-        </section>
-
-        <!-- notification -->
-        <section class="main5" id="notificationSection">
-         <main id="notify" >
+      <!-- notification -->
+      <section class="main5" id="notificationSection">
+        <main id="notify">
           <div class="d-flex justify-content-between notifyDiv">
-            <div class="activeSlide" >
+            <div class="activeSlide">
               <p onclick="toggleNotifyDiv(0)">BILLS</p>
             </div>
-            <div >
+            <div>
               <p onclick="toggleNotifyDiv(1)">TIPS</p>
             </div>
-            <div >
+            <div>
               <p onclick="toggleNotifyDiv(2)">USAGE</p>
             </div>
           </div>
@@ -273,17 +316,17 @@
             </table>
           </main>
 
-          <main  class="borderit" style="display: none; text-align: center; opacity: 0.5; margin-top: 300px;">
+          <main class="borderit" style="display: none; text-align: center; opacity: 0.5; margin-top: 200px;">
             <div id="tipsTab">
               <h3>Tips currently unavailable</h3>
             </div>
             <!-- Content for TIPS tab -->
           </main>
-          <main  class="borderit" style="display: none; text-align: center; opacity: 0.5; margin-top: 300px;">
+          <main class="borderit" style="display: none; text-align: center; opacity: 0.5; margin-top: 200px;">
             <!-- Content for USAGE tab -->
             <div id="usageTab">
               <h3>usage information currently unavailable</h3>
-            </div> 
+            </div>
           </main>
 
 
@@ -291,79 +334,127 @@
         </main>
 
 
-        </section>
+      </section>
 
 
-        <!-- add appliances -->
-        <section class="main6" id="applianceSection">
-          
-          <h3>There are no appliances at the moment</h3>
+      <!-- add appliances -->
+      <section class="main6" id="applianceSection">
+        <main class="d-flex justify-content-center align-items-center p-lg-5 appliancce" style="display: none; text-align: center; opacity: 0.5; margin-top: 200px; margin-left: 250px;">
+          <div>
+            <h3>No appliances added yet</h3>
+          </div>
+        </main>
+
+      </section>
 
 
-        </section>
 
-
-
-        <!-- billing -->
-        <section class="main7" id="BillingSection">
-          <main>
-            <div>
-              <img src="images/billings.png" alt="">
+      <!-- billing -->
+      <section class="main7" id="BillingSection">
+        <main>
+          <div class="billImage">
+            <img src="images/billings.png" alt="" width="400">
+          </div>
+            <div class="d-flex justify-content-center align-items-center p-lg-5 text-danger appliancce" style="display: none; text-align: center; opacity: 0.5; margin-top: 200px; margin-left: 250px;">
+              <h3>currently under construction</h3>
             </div>
-            <div>
-
-            </div>
-          </main>
+       
+        </main>
 
 
-        </section>
+      </section>
 
 
-        <!-- accounts -->
-        <section class="main8" id="accountSection">
+      <!-- accounts -->
+      <section class="main8" id="accountSection">
 
 
 
 
-        </section>
+      </section>
 
 
-        <!-- settings -->
-        <section class="main9" id="settingSection">
-
-
-
-
-        </section>
-
-
-        <!-- help -->
-        <section class="main10" id="helpSection">
+      <!-- settings -->
+      <section class="main9" id="settingSection">
 
 
 
 
-        </section>
+      </section>
+
+
+      <!-- help -->
+      <section class="main10" id="helpSection">
 
 
 
 
-      
+      </section>
 
 
 
-      </main>
 
-      
-    </section>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-    <script type="module" src="script/dashboard.js"></script>
-    <script src="script/chartsMenus.js"></script>
-    <script src="script/randomjs.js"></script>
-  </body>
 
-  </html>
+
+
+
+    </main>
+
+
+  </section>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+  var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
+  var myModal1 = new bootstrap.Modal(document.getElementById('staticBackdrop1'));
+
+  // Check if the meter number exists in localStorage
+  const meterNumber = localStorage.getItem('meterNumber');
+
+  if (!meterNumber) {
+    myModal.show();
+  }else{
+    meterNumber1.innerText = meterNumber;
+  }
+
+  const meterInput = document.querySelector('#staticBackdrop input');
+  const enterButton = document.querySelector('#staticBackdrop button');
+
+  enterButton.addEventListener('click', function() {
+    meterCheck();
+  });
+
+  function meterCheck() {
+    let firstNumber = meterInput.value.trim();
+    const isTenDigits = firstNumber.length === 10 && /^\d+$/.test(firstNumber);
+
+    if (isTenDigits) {
+      localStorage.setItem('meterNumber', firstNumber);
+      myModal.hide();
+      myModal1.show();
+      meterNumber1.innerText = firstNumber;
+    } else {
+      myModal.show();
+      myModal1.hide();
+    }
+  }
+});
+
+
+
+
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+  <script type="module" src="script/dashboard.js"></script>
+  <script src="script/chartsMenus.js"></script>
+  <script src="script/randomjs.js"></script>
+</body>
+
+</html>

@@ -33,7 +33,7 @@ const appleProvider = new OAuthProvider('apple.com');
 onAuthStateChanged(auth, (user) => {
   if (user) {
     // User is signed in, redirect to the dashboard
-    window.location.href = "dashboard.html";
+    console.log(user);
   } else {
 
 const googleSignin = () => {

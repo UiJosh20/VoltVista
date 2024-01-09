@@ -30,7 +30,6 @@ onAuthStateChanged(auth, (user) => {
     let firstName = userName.split(' ')[0];
     let lastName = userName.split(' ')[1];
   
-    displayMeterNumber()
     displayProfile.innerHTML = `
     <img src=${profilePhoto} width="40" height="40"/>
     `
