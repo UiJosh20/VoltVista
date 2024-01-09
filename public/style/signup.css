@@ -5,6 +5,9 @@
 img{
   cursor: pointer !important;
 }
+body,html{
+  overflow: hidden;
+}
 
 .imgsize {
   width: 500px !important;
