@@ -296,6 +296,29 @@ border-radius: 100%;
   margin-top: 70px;
 }
 
+.bginfo{
+  background: #7ED6FF;
+  border-radius: 10px 10px 0px 0px;
+  font-size: 13px;
+}
+.chart1{
+  border-radius: 20px;
+}
+.setLimit{
+  cursor: pointer;
+
+}
+.setLimit>img{
+  position: relative;
+  bottom: 10px;
+}
+
+input::placeholder{
+  font-size: 13px;
+  color: #858383;
+}
+
+
 @media screen and (max-width: 475px) {
   nav>div>img{
     width: 100px ;
@@ -513,7 +536,11 @@ border-radius: 100%;
 .chart1 {
   padding: 10px !important;
 }
-
+.bginfo{
+  background: #7ED6FF;
+  border-radius: 10px 10px 0px 0px;
+  font-size: 10px;
+}
 .offcanvas-body>.indicate{
     border-left: 5px solid #0B6186;
   /* height: 10px !important; */

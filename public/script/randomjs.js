@@ -73,3 +73,24 @@ function toggleNotifyDiv(index) {
     }
   });
 }
+
+
+
+function addLimit() {
+  var limitInput = document.getElementById('limitInput');
+  var limitValue = Number(limitInput.value);
+
+  if (!isNaN(limitValue) && limitValue >= 0 && limitValue < 100) {
+    // Save limit to local storage
+    localStorage.setItem('usageLimit', limitValue);
+
+    // Show success modal
+    $('#staticBackdrop3').modal('show');
+
+    // Update chart based on the entered limit
+    updateChart(limitValue);
+  } else {
+    // Handle invalid input
+    alert('Please enter a valid limit between 0 and 99.');
+  }
+}

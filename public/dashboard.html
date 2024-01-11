@@ -23,8 +23,10 @@
           <h1 class="modal-title fs-5" id="staticBackdropLabel">Meter Number</h1>
         </div>
         <div class="modal-body">
+          <div id="showerr"></div>
           <p>Enter meter number</p>
-          <input type="number" class="form-control shadow-none" id="firstModalInput" autofocus>
+          <input type="number" class="form-control shadow-none" id="firstModalInput" autofocus
+            placeholder="xx-xxx-xx-xxx">
         </div>
         <div class="p-3 modalfooter">
           <button type="button" class="btn shadow-none text-white w-100" onclick="meterCheck()">Enter</button>
@@ -35,21 +37,21 @@
 
 
   <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-  aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-     
-      <div class="modal-body text-center">
-        <img src="images/vw.svg" alt="" width="70">
-        <h1>Successful</h1>
-        <small>meter has been added successfully </small>
-      </div>
-      <div class="p-3 modalfooter">
-        <button type="button" class="btn shadow-none text-white w-100" data-bs-dismiss="modal">continue</button>
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-body text-center">
+          <img src="images/vw.svg" alt="" width="70">
+          <h1>Successful</h1>
+          <small>meter has been added successfully </small>
+        </div>
+        <div class="p-3 modalfooter">
+          <button type="button" class="btn shadow-none text-white w-100" data-bs-dismiss="modal">continue</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
 
@@ -73,7 +75,9 @@
       </div>
 
       <div class="d-flex notification gap-3 align-items-center">
-        <img src="images/clarity_notification-line.svg" alt="" />
+        <a href="#notificaton">
+          <img src="images/clarity_notification-line.svg" alt="" />
+        </a>
         <div id="displayProfile1" class="hideDiv"></div>
         <div class="prof">
           <div id="displayProfile"></div>
@@ -193,7 +197,7 @@
 
 
       <!-- dashboard -->
-      <section class="col-lg-9 main3 col-sm-12" id="dashboardHome">
+      <section class="col-lg-9 main3 col-sm-12 pb-5" id="dashboardHome">
         <main class="d-flex justify-content-between align-items-center mainChild">
           <div class="d-flex gap-2 align-items-center meter">
             <small>Meter Number:</small>
@@ -215,14 +219,71 @@
         </main>
 
         <main class="main4 mt-4 d-flex justify-content-center">
-          <div class="bg-white shadow p-lg-5 chart1">
-            <canvas id="electricityChart" width="772" height="515"></canvas>
+          <div class="bg-white shadow p-0 chart1 rounded-3">
+            <div class="w-100 bginfo p-2  d-flex justify-content-between align-items-center">
+              <div>
+                <p>Energy consumption trend</p>
+              </div>
+              <div class="d-flex  align-items-center setLimit" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+                <p>Set Limit</p>
+                <img src="images/ri_arrow-drop-down-line.svg" alt="">
+              </div>
+            </div>
+            <canvas id="electricityChart" width="872" height="515"></canvas>
           </div>
+
+          <!-- set limit popup -->
+          <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog  modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Usage limit</h1>
+                </div>
+                <div class="modal-body">
+                  <p>Enter limit</p>
+                  <input type="number" name="" id="" placeholder="xxx" autofocus class="form-control shadow-none w-100">
+                </div>
+                <div class="modalfooter p-4">
+                  <button type="button" class="btn btn-primary w-100" onclick="addLimit()">Enter</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- set limit successful popup -->
+          <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+
+                <div class="modal-body text-center">
+                  <img src="images/vw.svg" alt="" width="70">
+                  <h1>Successful</h1>
+                  <small>limit has been added successfully </small>
+                </div>
+                <div class="p-3 modalfooter">
+                  <button type="button" class="btn shadow-none text-white w-100"
+                    data-bs-dismiss="modal">continue</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
         </main>
 
         <main class="main4 mt-4 d-flex justify-content-center mb-3">
-          <div class="bg-white shadow p-lg-5 chart1">
-            <canvas id="electricityChart1" width="772" height="515"></canvas>
+          <div class="bg-white shadow p-0 chart1">
+            <div class="w-100 bginfo p-2  d-flex justify-content-between align-items-center">
+              <div>
+                <p>Energy consumption trend (per appliance)</p>
+              </div>
+              <div class="d-flex  align-items-center setLimit">
+                <p>(29 Nov - 29 Dec)</p>
+              </div>
+            </div>
+            <canvas id="electricityChart1" width="872" height="515"></canvas>
           </div>
         </main>
       </section>
@@ -339,7 +400,8 @@
 
       <!-- add appliances -->
       <section class="main6" id="applianceSection">
-        <main class="d-flex justify-content-center align-items-center p-lg-5 appliancce" style="display: none; text-align: center; opacity: 0.5; margin-top: 200px; margin-left: 250px;">
+        <main class="d-flex justify-content-center align-items-center p-lg-5 appliancce"
+          style="display: none; text-align: center; opacity: 0.5; margin-top: 200px; margin-left: 250px;">
           <div>
             <h3>No appliances added yet</h3>
           </div>
@@ -355,10 +417,11 @@
           <div class="billImage">
             <img src="images/billings.png" alt="" width="400">
           </div>
-            <div class="d-flex justify-content-center align-items-center p-lg-5 text-danger appliancce" style="display: none; text-align: center; opacity: 0.5; margin-top: 200px; margin-left: 250px;">
-              <h3>currently under construction</h3>
-            </div>
-       
+          <div class="d-flex justify-content-center align-items-center p-lg-5 text-danger appliancce"
+            style="display: none; text-align: center; opacity: 0.5; margin-top: 200px; margin-left: 250px;">
+            <h3>currently under construction</h3>
+          </div>
+
         </main>
 
 
@@ -404,41 +467,44 @@
   </section>
 
   <script>
-document.addEventListener('DOMContentLoaded', function () {
-  var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
-  var myModal1 = new bootstrap.Modal(document.getElementById('staticBackdrop1'));
+    document.addEventListener('DOMContentLoaded', function () {
+      var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
+      var myModal1 = new bootstrap.Modal(document.getElementById('staticBackdrop1'));
 
-  // Check if the meter number exists in localStorage
-  const meterNumber = localStorage.getItem('meterNumber');
+      // Check if the meter number exists in localStorage
+      const meterNumber = localStorage.getItem('meterNumber');
 
-  if (!meterNumber) {
-    myModal.show();
-  }else{
-    meterNumber1.innerText = meterNumber;
-  }
+      if (!meterNumber) {
+        myModal.show();
+      } else {
+        meterNumber1.innerText = meterNumber;
+      }
 
-  const meterInput = document.querySelector('#staticBackdrop input');
-  const enterButton = document.querySelector('#staticBackdrop button');
+      const meterInput = document.querySelector('#staticBackdrop input');
+      const enterButton = document.querySelector('#staticBackdrop button');
 
-  enterButton.addEventListener('click', function() {
-    meterCheck();
-  });
+      enterButton.addEventListener('click', function () {
+        meterCheck();
+      });
 
-  function meterCheck() {
-    let firstNumber = meterInput.value.trim();
-    const isTenDigits = firstNumber.length === 10 && /^\d+$/.test(firstNumber);
+      function meterCheck() {
+        let firstNumber = meterInput.value.trim();
+        const isTenDigits = firstNumber.length === 10 && /^\d+$/.test(firstNumber);
 
-    if (isTenDigits) {
-      localStorage.setItem('meterNumber', firstNumber);
-      myModal.hide();
-      myModal1.show();
-      meterNumber1.innerText = firstNumber;
-    } else {
-      myModal.show();
-      myModal1.hide();
-    }
-  }
-});
+        if (isTenDigits) {
+          localStorage.setItem('meterNumber', firstNumber);
+          myModal.hide();
+          myModal1.show();
+          meterNumber1.innerText = firstNumber;
+        } else {
+          showerr.innHTML = `
+      <p class="alert alert-danger">meter number should be 10 digits</p>
+      `
+          myModal.show();
+          myModal1.hide();
+        }
+      }
+    });
 
 
 
