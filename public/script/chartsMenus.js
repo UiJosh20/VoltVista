@@ -4,7 +4,7 @@
         const data = [];
         for (let i = 0; i < 7; i++) {
           // Generate random values between 20 and 50 for kWh usage
-          const randomValue = Math.floor(Math.random() * (50 - 20 + 1)) + 20;
+          const randomValue = Math.floor(Math.random() * (20 - 10 + 1)) + 20;
           data.push(randomValue);
         }
         return data;
@@ -23,7 +23,7 @@
       const myChart = new Chart(ctx, {
         type: "bar",
         data: {
-          labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+          labels: getDayLabels(),
           datasets: [
             {
               label: "Energy consumption trend ",
@@ -105,7 +105,18 @@
         },
       });
 
-
+      function getDayLabels() {
+        const today = new Date();
+        const dayLabels = [];
+      
+        for (let i = 6; i >= 0; i--) {
+            const day = new Date(today);
+            day.setDate(today.getDate() - i);
+            dayLabels.push(day.toLocaleDateString('en-US', { weekday: 'short' }));
+        }
+      
+        return dayLabels;
+      }
 
       // Get references to the dashboard and profile section
       const dashboardSection = document.getElementById('dashboardHome');

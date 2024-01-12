@@ -76,21 +76,60 @@ function toggleNotifyDiv(index) {
 
 
 
-function addLimit() {
-  var limitInput = document.getElementById('limitInput');
-  var limitValue = Number(limitInput.value);
 
-  if (!isNaN(limitValue) && limitValue >= 0 && limitValue < 100) {
-    // Save limit to local storage
-    localStorage.setItem('usageLimit', limitValue);
+  var limitModal = new bootstrap.Modal(document.getElementById('staticBackdrop2'));
+  var successModal = new bootstrap.Modal(document.getElementById('staticBackdrop3'));
 
-    // Show success modal
-    $('#staticBackdrop3').modal('show');
+  // Function to handle setting the limit
+  function setLimit() {
+    var limitInput = document.getElementById('limitInput');
+    var limitValue = Number(limitInput.value);
 
-    // Update chart based on the entered limit
-    updateChart(limitValue);
-  } else {
-    // Handle invalid input
-    alert('Please enter a valid limit between 0 and 99.');
+    if (!isNaN(limitValue) && limitValue >= 0 && limitValue < 999) {
+      // Save limit to local storage
+      localStorage.setItem('usageLimit', limitValue);
+
+      // Show success modal
+      successModal.show();
+
+      // Update chart based on the entered limit
+      updateChart(limitValue);
+    } else {
+      // Handle invalid input
+      alert('Please enter a valid limit between 0 and 999.');
+    }
+  }
+
+const addLimit = () => {
+  setLimit();
+  limitModal.hide();
+}
+
+
+function updateChart(limitValue) {
+  const todayIndex = electricityData.length - 1;
+  const randomValue = Math.floor(Math.random() * (limitValue)) + 1;
+  electricityData[todayIndex] = randomValue; // Update the value of the present day
+
+  // Check if the limit is reached
+  const limitReached = randomValue >= limitValue;
+
+  // Get the datasets from the chart
+  const datasets = myChart.data.datasets;
+
+  // Update the bar color based on the limit
+  datasets[0].backgroundColor = limitReached ? "rgb(255, 0, 0)" : "rgb(11, 97, 134)";
+  datasets[0].borderColor = limitReached ? "rgba(255, 0, 0, 1)" : "rgba(54, 162, 235, 1)";
+
+  // Update the chart data
+  myChart.data.datasets = datasets;
+  myChart.update();
+
+  // Handle limit reached scenario
+  if (limitReached) {
+    alert('Usage limit reached!'); // You can replace this with your preferred way of notifying the user
   }
 }
+
+const limitValue = localStorage.getItem('usageLimit') || 80; // You can set a default value or get it from the user
+setInterval(() => updateChart(limitValue), 6000);
