@@ -152,5 +152,5 @@ function updateCharts(limitValue) {
   }
 }
 
-const limitValue = localStorage.getItem("usageLimit") || 80; // You can set a default value or get it from the user
+const limitValue = localStorage.getItem("usageLimit"); // You can set a default value or get it from the user
 setInterval(() => updateCharts(limitValue), 6000);
