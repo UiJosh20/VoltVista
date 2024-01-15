@@ -101,12 +101,21 @@ const addLimit = () => {
   limitModal.hide();
 };
 
-function updateCharts(limitValue) {
+const updateCharts = (limitValue) => {
+  // Convert the limitValue to a number
+  limitValue = Number(limitValue);
+
+  // Check if limitValue is a valid number
+  if (isNaN(limitValue) || limitValue <= 0) {
+    console.log("Invalid limit value. Please set a valid limit.");
+    return;
+  }
+
   const todayIndex = electricityData.length - 1;
 
   // Generate random values inversely for the first and second charts
   const randomValueChart1 =
-    Math.floor(Math.random() * (limitValue / 3)) + limitValue / 2 + 1;
+    Math.floor(Math.random() * (limitValue / 2)) + limitValue / 2 + 1;
   const randomValueChart2 = limitValue - randomValueChart1;
 
   // Update the values of the present day for both charts
