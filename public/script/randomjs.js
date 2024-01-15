@@ -106,7 +106,7 @@ function updateCharts(limitValue) {
 
   // Generate random values inversely for the first and second charts
   const randomValueChart1 =
-    Math.floor(Math.random() * (limitValue / 2)) + limitValue / 2 + 1;
+    Math.floor(Math.random() * (limitValue / 3)) + limitValue / 2 + 1;
   const randomValueChart2 = limitValue - randomValueChart1;
 
   // Update the values of the present day for both charts
